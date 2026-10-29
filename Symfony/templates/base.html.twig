@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Hotwire roadmap{% endblock %}</title>
+        <style>
+            body { font-family: system-ui, sans-serif; background: #f4f5f7; margin: 0; padding: 20px; }
+            header { background: #2c3e50; color: white; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; }
+            .tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+            .task-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+            .task-card h3 { margin-top: 0; }
+            .status { font-size: 12px; padding: 4px 8px; border-radius: 12px; background: #e2e8f0; }
+        </style>
+    </head>
+    <body>
+        <header>Task-tracker</header>
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+</html>

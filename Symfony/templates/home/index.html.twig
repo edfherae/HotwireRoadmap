@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+    <h1>Список задач</h1>
+
+    <div class="task-grid">
+        {% for task in tasks %}
+            {% include "components/_task_card.html.twig" with {"task": task} %}
+            {% else %}
+                <p>Задач пока нет</p>
+        {% endfor %}
+    </div>
+{% endblock %}
