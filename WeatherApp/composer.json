@@ -1,0 +1,19 @@
+{
+    "name": "pc/weather-app",
+    "description": "Test weather app",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "8.3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pc\\WeatherApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "edfherae",
+            "email": "163173239+edfherae@users.noreply.github.com"
+        }
+    ]
+}
