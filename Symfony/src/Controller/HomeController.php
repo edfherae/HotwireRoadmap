@@ -15,8 +15,10 @@ final class HomeController extends AbstractController
     {
         $tasks = $repo->findAll();
 
-        return $this->render('home/index.html.twig', [
-            'tasks' => $tasks
-        ]);
+        return $this->render('base.html.twig');
+
+        // return $this->render('home/index.html.twig', [
+        //     'tasks' => $tasks
+        // ]);
     }
 }

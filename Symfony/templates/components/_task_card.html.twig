@@ -1,4 +1,13 @@
 <div class="task-card">
-    <h3>{{ task.title }}</h3>
-    <span class="status">{{ task.status }}</span>
+    <input type="checkbox">
+    <div>
+        <span>{{ task.title }}</span>
+        <span>5</span>
+    </div>
+    <span>{{ task.assignedTo }}</span>
+    <span>{{ task.status }}</span>
+    <span>{{ task.priority }}</span>
+    {# <span>{{ task.dueDate }}</span> #}
+    <span>{{ task.estimated }} min</span>
+    <span>100%</span>
 </div>

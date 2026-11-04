@@ -1,23 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Hotwire roadmap{% endblock %}</title>
-        <style>
-            body { font-family: system-ui, sans-serif; background: #f4f5f7; margin: 0; padding: 20px; }
-            header { background: #2c3e50; color: white; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; }
-            .tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-            .task-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .task-card h3 { margin-top: 0; }
-            .status { font-size: 12px; padding: 4px 8px; border-radius: 12px; background: #e2e8f0; }
-        </style>
+        <link rel="stylesheet" href="{{ asset('assets/styles/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/styles.css') }}">
+        <title>{% block title %}Task management{% endblock %}</title>
     </head>
     <body>
-        <header>Task-tracker</header>
+        <div class="layout">
+            <aside class="sidebar">
+                <img class="sidebar__logo" src="{{ asset('assets/icons/svg/logo.svg') }}" alt="Support IT logo">
 
-        <main>
-            {% block body %}{% endblock %}
-        </main>
+                <nav class="sidebar__nav" aria-label="Main">
+                    <ul class="sidebar__list">
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-dashboard.svg') }}" alt="">
+                                <span class="sidebar__label">DASHBOARD</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-projects.svg') }}" alt="">
+                                <span class="sidebar__label">PROJECTS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link sidebar__link--active" href="#" aria-current="page">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-my-tasks.svg') }}" alt="">
+                                <span class="sidebar__label">MY TASKS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-calendar.svg') }}" alt="">
+                                <span class="sidebar__label">CALENDAR</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-time-manage-clock.svg') }}" alt="">
+                                <span class="sidebar__label">TIME MANAGE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-time-manage-pie.svg') }}" alt="">
+                                <span class="sidebar__label">TIME MANAGE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidebar__link" href="#">
+                                <img class="sidebar__icon" src="{{ asset('assets/icons/svg/icon-settings.svg') }}" alt="">
+                                <span class="sidebar__label">SETTINGS</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="workspace">
+                <header class="page-header">
+                    <div class="page-header__heading">
+                        <div class="page-header__meta">Last Update : 31 August 2024</div>
+                        <h1 class="page-header__title">Task management</h1>
+                    </div>
+
+                    <div class="profile">
+                        <div class="profile__info">
+                            <div class="profile__name">Divya</div>
+                            <div class="profile__role">UI/UX Designer</div>
+                        </div>
+                        <img class="profile__avatar" src="{{ asset('assets/icons/svg/Avatar.svg') }}" alt="Divya">
+                    </div>
+                </header>
+
+                <div class="tasks-toolbar">
+                    <h2 class="tasks-toolbar__title">My tasks</h2>
+
+                    <div class="filters">
+                        <button class="filters__button filters__button--active" type="button">All</button>
+                        <button class="filters__button" type="button">Completed</button>
+                        <button class="filters__button" type="button">In progress</button>
+                        <button class="filters__button" type="button">Not started</button>
+                    </div>
+
+                    <input class="search-field" type="search" placeholder="Search tasks">
+                </div>
+
+                <div class="task-grid">
+                    <div class="task-card">
+                        <input type="checkbox">
+                        <div>
+                            <span></span>
+                            <span>5</span>
+                        </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        {# <span>{{ task.dueDate }}</span> #}
+                        <span>min</span>
+                        <span>100%</span>
+                    </div>
+
+                    <div class="task-card">
+                        <input type="checkbox">
+                        <div>
+                            <span></span>
+                            <span>5</span>
+                        </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        {# <span>{{ task.dueDate }}</span> #}
+                        <span>min</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+
+                {# {% block body %}{% endblock %} #}
+            </main>
+        </div>
     </body>
 </html>
