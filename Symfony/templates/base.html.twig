@@ -63,8 +63,8 @@
             <main class="workspace">
                 <header class="page-header">
                     <div class="page-header__heading">
-                        <div class="page-header__meta">Last Update : 31 August 2024</div>
                         <h1 class="page-header__title">Task management</h1>
+                        <div class="page-header__meta">Last Update : 31 August 2024</div>
                     </div>
 
                     <div class="profile">
@@ -72,25 +72,191 @@
                             <div class="profile__name">Divya</div>
                             <div class="profile__role">UI/UX Designer</div>
                         </div>
-                        <img class="profile__avatar" src="{{ asset('assets/icons/svg/Avatar.svg') }}" alt="Divya">
+                        <img class="profile__avatar" src="{{ asset('assets/icons/svg/Avatar.svg') }}" alt="Divya" loading="lazy">
                     </div>
                 </header>
 
                 <div class="tasks-toolbar">
-                    <h2 class="tasks-toolbar__title">My tasks</h2>
-
-                    <div class="filters">
-                        <button class="filters__button filters__button--active" type="button">All</button>
-                        <button class="filters__button" type="button">Completed</button>
-                        <button class="filters__button" type="button">In progress</button>
-                        <button class="filters__button" type="button">Not started</button>
+                    <div class="tasks-toolbar__container">
+                        <h2 class="tasks-toolbar__title">My tasks</h2>
+                        <div class="filters">
+                            <button class="filters__button filters__button--active" type="button">All</button>
+                            <button class="filters__button" type="button">Completed</button>
+                            <button class="filters__button" type="button">In progress</button>
+                            <button class="filters__button" type="button">Not started</button>
+                        </div>
                     </div>
 
-                    <input class="search-field" type="search" placeholder="Search tasks">
+                    <div class="tasks-toolbar__container">
+                        <div class="search-field">
+                            <svg class="search-field__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <path d="M15.7549 14.255H14.9649L14.6849 13.985C15.6649 12.845 16.2549 11.365 16.2549 9.755C16.2549 6.165 13.3449 3.255 9.75488 3.255C6.16488 3.255 3.25488 6.165 3.25488 9.755C3.25488 13.345 6.16488 16.255 9.75488 16.255C11.3649 16.255 12.8449 15.665 13.9849 14.685L14.2549 14.965V15.755L19.2549 20.745L20.7449 19.255L15.7549 14.255ZM9.75488 14.255C7.26488 14.255 5.25488 12.245 5.25488 9.755C5.25488 7.26501 7.26488 5.255 9.75488 5.255C12.2449 5.255 14.2549 7.26501 14.2549 9.755C14.2549 12.245 12.2449 14.255 9.75488 14.255Z" fill="currentColor"/>
+                            </svg>
+                            <input class="search-field__input" type="search" placeholder="Search tasks">
+                        </div>
+                        <button class="primary-button">+ Add new task</button>
+                    </div>
                 </div>
 
-                <div class="task-grid">
-                    <div class="task-card">
+                <div class="tasks-grid">
+                    <div class="tasks-grid__row tasks-grid__row-header">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox checkbox--black">
+                        </div>
+                        <div class="cell">Task</div>
+                        <div class="cell">Assigned to</div>
+                        <div class="cell">State</div>
+                        <div class="cell">Priority</div>
+                        <div class="cell">Due date</div>
+                        <div class="cell">Estimated</div>
+                        <div class="cell">Progress</div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+
+                    <div class="tasks-grid__row">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cell">
+                            <span>Task name</span>
+                            <img class="cell__icon" src="{{ asset('assets/icons/svg/subtasks.svg') }}" alt="Subtasks">
+                            <span>5</span>
+                        </div>
+                        <div class="cell cell__team">Desing team ( 6 )</div>
+                        <div class="cell">
+                            <span class="task-state task-state--in-progress">InProgress</span>
+                        </div>
+                        <div class="cell">
+                            <img src="{{ asset('assets/icons/svg/red-flag.svg') }}" alt="Red flag">
+                        </div>
+                        <div class="cell">01/09/2024</div>
+                        <div class="cell">6 hrs</div>
+                        <div class="cell">
+                            <div class="progress-bar progress-bar--blue">
+                                <div class="progress-bar__fill-50"></div>
+                                <div class="progress-bar__dot-blue"></div>
+                            </div>
+                        </div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+
+                    <div class="tasks-grid__row">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cell">
+                            <span>Task name</span>
+                            <img class="cell__icon" src="{{ asset('assets/icons/svg/subtasks.svg') }}" alt="Subtasks">
+                            <span>6</span>
+                        </div>
+                        <div class="cell cell__team">Desing team ( 6 )</div>
+                        <div class="cell">
+                            <span class="task-state task-state--not-started">Not started</span>
+                        </div>
+                        <div class="cell">
+                            <img src="{{ asset('assets/icons/svg/blue-flag.svg') }}" alt="Blue flag">
+                        </div>
+                        <div class="cell">01/09/2024</div>
+                        <div class="cell">6 hrs</div>
+                        <div class="cell">
+                            <div class="progress-bar">
+                                <div class="progress-bar__fill-0"></div>
+                                <div class="progress-bar__dot-green"></div>
+                            </div>
+                        </div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+
+                    <div class="tasks-grid__row">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cell">
+                            <span>Task name</span>
+                            <img class="cell__icon" src="{{ asset('assets/icons/svg/subtasks.svg') }}" alt="Subtasks">
+                            <span>5</span>
+                        </div>
+                        <div class="cell cell__team">Desing team ( 6 )</div>
+                        <div class="cell">
+                            <span class="task-state task-state--completed">Completed</span>
+                        </div>
+                        <div class="cell">
+                            <img src="{{ asset('assets/icons/svg/red-flag.svg') }}" alt="Red flag">
+                        </div>
+                        <div class="cell">01/09/2024</div>
+                        <div class="cell">6 hrs</div>
+                        <div class="cell">
+                            <div class="progress-bar">
+                                <div class="progress-bar__fill-100"></div>
+                            </div>
+                        </div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+                    
+                    <div class="tasks-grid__row">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cell">
+                            <span>Task name</span>
+                            <img class="cell__icon" src="{{ asset('assets/icons/svg/subtasks.svg') }}" alt="Subtasks">
+                            <span>5</span>
+                        </div>
+                        <div class="cell cell__team">Desing team ( 6 )</div>
+                        <div class="cell">
+                            <span class="task-state task-state--completed">Completed</span>
+                        </div>
+                        <div class="cell">
+                            <img src="{{ asset('assets/icons/svg/red-flag.svg') }}" alt="Red flag">
+                        </div>
+                        <div class="cell">01/09/2024</div>
+                        <div class="cell">6 hrs</div>
+                        <div class="cell">
+                            <div class="progress-bar">
+                                <div class="progress-bar__fill-100"></div>
+                            </div>
+                        </div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+
+                    <div class="tasks-grid__row">
+                        <div class="cell">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cell">
+                            <span>Task name</span>
+                            <img class="cell__icon" src="{{ asset('assets/icons/svg/subtasks.svg') }}" alt="Subtasks">
+                            <span>5</span>
+                        </div>
+                        <div class="cell cell__team">Desing team ( 6 )</div>
+                        <div class="cell">
+                            <span class="task-state task-state--completed">Completed</span>
+                        </div>
+                        <div class="cell">
+                            <img src="{{ asset('assets/icons/svg/red-flag.svg') }}" alt="Red flag">
+                        </div>
+                        <div class="cell">01/09/2024</div>
+                        <div class="cell">6 hrs</div>
+                        <div class="cell">
+                            <div class="progress-bar">
+                                <div class="progress-bar__fill-100"></div>
+                            </div>
+                        </div>
+                        <button class="cell">
+                            <img src="{{ asset('assets/icons/svg/ellipsis.svg') }}" alt="Редактировать задачу">
+                        </button>
+                    </div>
+                    {# <div class="task-card">
                         <input type="checkbox">
                         <div>
                             <span></span>
@@ -99,7 +265,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        {# <span>{{ task.dueDate }}</span> #}
+                        <span>{{ task.dueDate }}</span> 
                         <span>min</span>
                         <span>100%</span>
                     </div>
@@ -113,12 +279,19 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        {# <span>{{ task.dueDate }}</span> #}
                         <span>min</span>
                         <span>100%</span>
-                    </div>
+                    </div> #}
                 </div>
 
+                <div class="pagination">
+                    <div class="pagination__buttons">
+                        <div class="pagination__button">&lt;</div>
+                        <div class="pagination__button pagination__button--active">1</div>
+                        <div class="pagination__button">2</div>
+                        <div class="pagination__button">&gt;</div>
+                    </div>
+                </div>
                 {# {% block body %}{% endblock %} #}
             </main>
         </div>
